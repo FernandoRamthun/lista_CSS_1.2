@@ -1,32 +1,30 @@
-/* Mantenha o corpo primeiro */
-
+/* ======================== */
+/* Estilos globais / corpo  */
+/* ======================== */
 body {
     font-family: Arial, sans-serif;
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #f0f0f0;
+    background: #f0f0f0;
 }
 
-/* Simplifique os títulos */
 .titulo-principal {
     color: #2c3e50;
     text-align: center;
     margin-bottom: 30px;
 }
 
-/* Estilos básicos para parágrafos */
 .paragrafo {
     line-height: 1.6;
     padding: 15px;
-    background-color: #fff;
+    background: #fff;
     border-radius: 8px;
     margin: 15px 0;
 }
 
-/* Destaques com classes semânticas */
 .destaque-amarelo {
-    background-color: #f1c40f;
+    background: #f1c40f;
     font-style: italic;
     padding: 2px 5px;
 }
@@ -37,38 +35,180 @@ body {
     text-decoration: underline;
 }
 
-/* Exemplos práticos com container */
 .container-exemplo {
-    background-color: white;
+    background: #fff;
     border: 2px solid #ddd;
     padding: 20px;
     margin: 20px 0;
 }
 
-/* Classes para tipos de elementos */
 .elemento-bloco {
-    background-color: #e74c3c;
-    color: white;
+    background: #e74c3c;
+    color: #fff;
     padding: 10px;
     margin: 5px;
 }
 
 .elemento-inline {
-    background-color: #3498db;
-    color: white;
+    background: #3498db;
+    color: #fff;
     padding: 5px;
 }
 
-/* Flexbox simplificado */
 .flex-container {
     display: flex;
     gap: 10px;
     padding: 10px;
-    background-color: #2ecc71;
+    background: #2ecc71;
 }
 
 .flex-item {
-    background-color: white;
+    background: #fff;
     padding: 15px;
     flex: 1;
+}
+
+
+/* Exercício 7 - Perfil     */
+.perfil-container {
+    max-width: 1000px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.perfil-layout {
+    display: flex;
+    min-height: 400px;
+}
+
+.perfil-coluna-foto {
+    width: 200px;
+    background: #f8f9fa;
+    padding: 20px;
+    border-right: 2px solid #e9ecef;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.perfil-retangulo-foto {
+    width: 150px;
+    height: 150px;
+    background: #dee2e6;
+    border: 2px solid #adb5bd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    color: #6c757d;
+    text-align: center;
+    content: "Foto";
+}
+
+.perfil-info-item {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #495057;
+}
+
+.perfil-info-item strong {
+    color: #2c3e50;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.perfil-coluna-conteudo {
+    flex: 1;
+    padding: 20px;
+}
+
+.perfil-nome {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.perfil-titulo-profissional {
+    color: #3498db;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.perfil-descricao {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.perfil-titulo-secao {
+    color: #2c3e50;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.perfil-experiencia-item {
+    margin-bottom: 15px;
+    padding-left: 12px;
+    border-left: 3px solid #3498db;
+}
+
+.perfil-cargo { font-weight: bold; color: #2c3e50; margin-bottom: 3px; }
+.perfil-empresa { color: #3498db; font-style: italic; margin-bottom: 3px; }
+.perfil-periodo { color: #7f8c8d; font-size: 0.85rem; margin-bottom: 5px; }
+
+.perfil-atribuicoes-lista {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 5px;
+}
+
+.perfil-atribuicoes-lista li {
+    margin-bottom: 5px;
+    padding-left: 12px;
+    position: relative;
+}
+
+.perfil-atribuicoes-lista li:before {
+    content: "•";
+    color: #3498db;
+    position: absolute;
+    left: 0;
+}
+
+.perfil-habilidades-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.perfil-habilidade-tag {
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    border: 1px solid #bbdefb;
+}
+
+/* ======================== */
+/* Responsividade Perfil     */
+/* ======================== */
+@media (max-width: 768px) {
+    .perfil-layout { flex-direction: column; }
+    .perfil-coluna-foto {
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid #e9ecef;
+    }
+    .perfil-coluna-conteudo { padding: 15px; }
 }
