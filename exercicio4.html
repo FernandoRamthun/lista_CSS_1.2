@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise Completa da Especificidade CSS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="analise-css">
+        <h1>Entendendo a Especificidade no CSS</h1>
+        <p>O CSS segue um sistema de hierarquia chamado "especificidade" para decidir quais regras têm prioridade sobre outras. Abaixo, exploramos 8 regras diferentes e como elas afetam a estilização de uma lista.</p>
+
+        <div class="fonte_imagem">
+            <img src="imagens/Captura de tela 2025-03-27 013357.png" alt="Trecho do Código.png" style="border: solid 1px black;">
+            <div>Seja o trecho de código HTML e CSS da figura a seguir e explique porque cada regra foi aplicada em cada 
+                item.</div>
+        </div>
+
+        <!-- Regra 1 -->
+        <section class="regra">
+            <h2>Regra 1: Seletor de Elemento</h2>
+            <p class="codigo"><code>li { color: red; }</code></p>
+            <p class="peso">Peso: Baixo (seletor genérico de elemento).</p>
+            <p class="aplica">✔ Aplica-se a todos os itens da lista.</p>
+            <p class="exemplo">Exemplo: Todos os itens da lista ficam vermelhos, a menos que outra regra com mais peso os sobrescreva.</p>
+        </section>
+
+        <!-- Regra 2 -->
+        <section class="regra">
+            <h2>Regra 2: Seletor de Classe</h2>
+            <p class="codigo"><code>.churras { color: green; }</code></p>
+            <p class="peso">Peso: Médio (classe tem mais prioridade que elemento).</p>
+            <p class="aplica">✔ Afeta todos os itens da lista que possuem a classe <code>churras</code>.</p>
+            <p class="exemplo">Exemplo: Os itens "Carne" e "Linguiça" deveriam ficar verdes, mas outra regra pode interferir.</p>
+        </section>
+
+        <!-- Regra 3 -->
+        <section class="regra">
+            <h2>Regra 3: Outra Classe com Prioridade</h2>
+            <p class="codigo"><code>.fruta { color: gray; }</code></p>
+            <p class="peso">Peso: Médio (mesma prioridade da Regra 2).</p>
+            <p class="aplica">✔ Afeta todos os itens que possuem a classe <code>fruta</code>.</p>
+            <p class="exemplo">Exemplo: "Melão", "Pera", "Uva" e "Maçã" ficam cinza.</p>
+        </section>
+
+        <!-- Regra 4 -->
+        <section class="regra">
+            <h2>Regra 4: Combinador Adjancente + Classe</h2>
+            <p class="codigo"><code>li + li.churras { color: black; }</code></p>
+            <p class="peso">Peso: Alto (elemento + classe + combinador).</p>
+            <p class="aplica">✔ Aplica-se apenas aos itens <code>.churras</code> que vêm logo após outro <code>li</code>.</p>
+            <p class="exemplo">Exemplo: "Carne" e "Linguiça" ficariam pretos, pois são precedidos por outro <code>li</code>.</p>
+        </section>
+
+        <!-- Regra 5 -->
+        <section class="regra">
+            <h2>Regra 5: Atributo Específico</h2>
+            <p class="codigo"><code>.churras[draggable="true"] { color: magenta; }</code></p>
+            <p class="peso">Peso: Alto (classe + seletor de atributo).</p>
+            <p class="aplica">✔ Afeta elementos da classe <code>churras</code> que possuem o atributo <code>draggable="true"</code>.</p>
+            <p class="exemplo">Exemplo: Apenas "Pão de alho" fica magenta, pois é o único que tem <code>draggable="true"</code>.</p>
+        </section>
+
+        <!-- Regra 6 -->
+        <section class="regra">
+            <h2>Regra 6: IDs Específicos</h2>
+            <p class="codigo"><code>#lip1, #lip2, #lip3 { color: blue; }</code></p>
+            <p class="peso">Peso: Muito Alto (IDs têm prioridade sobre classes e elementos).</p>
+            <p class="aplica">✔ Aplica-se aos itens com IDs <code>lip1</code>, <code>lip2</code> e <code>lip3</code>.</p>
+            <p class="exemplo">Exemplo: "Pera" e "Uva" ficarão azuis, independentemente de outras regras aplicadas.</p>
+        </section>
+
+        <!-- Regra 7 -->
+        <section class="regra">
+            <h2>Regra 7: ID + Classe (Máxima Especificidade)</h2>
+            <p class="codigo"><code>#lip3.fruta { color: orange; }</code></p>
+            <p class="peso">Peso: Extremamente Alto (ID + Classe combinados).</p>
+            <p class="aplica">✔ Aplica-se apenas ao item que possui ID <code>lip3</code> e classe <code>fruta</code>.</p>
+            <p class="exemplo">Exemplo: "Uva" ficará laranja, pois essa regra tem mais peso do que a Regra 6.</p>
+        </section>
+
+        <!-- Regra 8 -->
+        <section class="regra">
+            <h2>Regra 8: Elemento + Classe + ID (Inválido)</h2>
+            <p class="codigo"><code>ol > li.churras#lip5 { color: purple; }</code></p>
+            <p class="peso">Peso: Máximo, mas sem efeito.</p>
+            <p class="aplica">Essa regra não afeta nenhum elemento, pois não existe um item com o ID <code>lip5</code>.</p>
+            <p class="exemplo">Exemplo: Nenhuma alteração visual ocorre.</p>
+        </section>
+    </div>
+
+    <!-- Lista de Exemplo -->
+    <div class="exemplo-pratico">
+        <h2>Exemplo Prático no Navegador</h2>
+        <ol>
+            <li id="lip0">Abacaxi</li>
+            <li class="fruta">Melão</li>
+            <li id="lip2" class="fruta">Pera</li>
+            <li id="lip3" class="fruta">Uva</li>
+            <li class="fruta">Maçã</li>
+            <li class="churras">Carne</li>
+            <li class="churras">Linguiça</li>
+            <li class="churras" draggable="true">Pão de alho</li>
+        </ol>
+    </div>
+
+    <a href="https://fernandoramthun.github.io/lista_css_1/">Voltar para a lista de exercícios</a>
+</body>
+</html>

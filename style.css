@@ -1,0 +1,74 @@
+/* Mantenha o corpo primeiro */
+
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+/* Simplifique os títulos */
+.titulo-principal {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Estilos básicos para parágrafos */
+.paragrafo {
+    line-height: 1.6;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+/* Destaques com classes semânticas */
+.destaque-amarelo {
+    background-color: #f1c40f;
+    font-style: italic;
+    padding: 2px 5px;
+}
+
+.destaque-vermelho {
+    color: #e74c3c;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Exemplos práticos com container */
+.container-exemplo {
+    background-color: white;
+    border: 2px solid #ddd;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+/* Classes para tipos de elementos */
+.elemento-bloco {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+}
+
+.elemento-inline {
+    background-color: #3498db;
+    color: white;
+    padding: 5px;
+}
+
+/* Flexbox simplificado */
+.flex-container {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background-color: #2ecc71;
+}
+
+.flex-item {
+    background-color: white;
+    padding: 15px;
+    flex: 1;
+}
