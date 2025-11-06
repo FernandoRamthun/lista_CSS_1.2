@@ -96,18 +96,21 @@ body {
 .perfil-retangulo-foto {
     width: 150px;
     height: 150px;
-    background: #dee2e6;
     border: 2px solid #adb5bd;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    overflow: hidden; /* garante que a imagem não “vaze” */
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
-    border-radius: 4px;
-    font-size: 1.1rem;
-    color: #6c757d;
-    text-align: center;
-    content: "Foto";
 }
+
+.perfil-retangulo-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* mantém proporção e corta excesso */
+}
+
 
 .perfil-info-item {
     margin-bottom: 10px;
