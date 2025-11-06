@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barquinho no Mar - Animação CSS</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .cenario {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(to bottom, #87CEEB 60%, #1E90FF 100%);
+            overflow: hidden;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .mar {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(to bottom, transparent, #1E90FF);
+        }
+        
+        .mar::before,
+        .mar::after {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 20px;
+            background: radial-gradient(ellipse at center, rgba(255,255,255,0.3) 0%, transparent 70%);
+            animation: ondas 8s linear infinite;
+        }
+        
+        .mar::before {
+            top: 10px;
+            animation-delay: -4s;
+        }
+        
+        .mar::after {
+            top: 30px;
+        }
+        
+        .barco {
+            position: absolute;
+            bottom: 120px;
+            left: -100px;
+            width: 120px;
+            height: 60px;
+            background: #8B4513;
+            border-radius: 50% 50% 0 0;
+            animation: navegar 20s linear infinite, balanco 3s ease-in-out infinite;
+            z-index: 10;
+        }
+        
+        .barco::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 60px;
+            background: #8B4513;
+        }
+        
+        .barco::after {
+            content: '';
+            position: absolute;
+            top: -55px;
+            left: 50%;
+            transform: translateX(-100%);
+            width: 50px;
+            height: 30px;
+            background: #F5F5DC;
+            clip-path: polygon(100% 0, 0 50%, 100% 100%);
+        }
+        
+        .nuvem {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(255,255,255,0.8);
+            animation: flutuar 30s linear infinite;
+            z-index: 5;
+        }
+        
+        .nuvem:nth-child(1) {
+            width: 100px;
+            height: 40px;
+            top: 80px;
+            animation-duration: 40s;
+        }
+        
+        .nuvem:nth-child(2) {
+            width: 150px;
+            height: 50px;
+            top: 120px;
+            animation-duration: 50s;
+            animation-delay: -10s;
+        }
+        
+        .nuvem:nth-child(3) {
+            width: 80px;
+            height: 30px;
+            top: 60px;
+            animation-duration: 35s;
+            animation-delay: -5s;
+        }
+        
+        .sol {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            width: 60px;
+            height: 60px;
+            background: #FFD700;
+            border-radius: 50%;
+            box-shadow: 0 0 40px #FFA500;
+        }
+        
+        .explicacao-animacao {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        @keyframes navegar {
+            0% {
+                left: -100px;
+            }
+            100% {
+                left: calc(100% + 100px);
+            }
+        }
+        
+        @keyframes balanco {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(2deg);
+            }
+            75% {
+                transform: rotate(-2deg);
+            }
+        }
+        
+        @keyframes flutuar {
+            0% {
+                left: -150px;
+            }
+            100% {
+                left: calc(100% + 150px);
+            }
+        }
+        
+        @keyframes ondas {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Animação CSS: Barquinho no Mar</h1>
+    
+    <p>Esta animação demonstra o uso de <code>@keyframes</code> e propriedades de posicionamento para criar uma cena animada com barco, mar e nuvens.</p>
+    
+    <div class="cenario">
+        <div class="sol"></div>
+        <div class="nuvem"></div>
+        <div class="nuvem"></div>
+        <div class="nuvem"></div>
+        <div class="barco"></div>
+        <div class="mar"></div>
+    </div>
+    
+    <div class="explicacao-animacao">
+        <h2>Explicação Técnica</h2>
+        <p>Esta animação utiliza várias técnicas CSS:</p>
+        <ul>
+            <li><strong>@keyframes:</strong> Para criar as animações de movimento do barco, nuvens e ondas</li>
+            <li><strong>position: absolute:</strong> Para posicionar elementos livremente na cena</li>
+            <li><strong>z-index:</strong> Para controlar a sobreposição de elementos (barco sobre as ondas)</li>
+            <li><strong>transform:</strong> Para rotação (balanço do barco) e translação (movimento)</li>
+            <li><strong>gradients:</strong> Para criar o céu e o mar com transições de cor realistas</li>
+            <li><strong>border-radius e clip-path:</strong> Para formas personalizadas como o barco e vela</li>
+        </ul>
+    </div>
+    
+    <div class="fonte_imagem">
+        Para voltar à <b>lista de atividades</b>, clique <a href="https://fernandoramthun.github.io/lista_css_1/"><b>aqui</b></a>.
+    </div>
+</body>
+</html>
